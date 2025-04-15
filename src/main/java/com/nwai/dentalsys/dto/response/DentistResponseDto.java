@@ -9,6 +9,6 @@ public record DentistResponseDto(
         String phoneNumber,
         String email,
         String specialization,
-        List<Appointment> appointmentList
+        List<AppointmentResponseDto> appointmentResponseDtoList
 ) {
 }

@@ -6,7 +6,7 @@ import java.util.List;
 public record SurgeryResponseDto(
         String sugeryNo,
         String sugeryName,
-        Address address,
-        List<Appointment> appointmentList
+        AddressResponseDto addressResponseDto,
+        List<AppointmentResponseDto> appointmentResponseDtoList
 ) {
 }

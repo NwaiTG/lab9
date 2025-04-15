@@ -11,7 +11,7 @@ public record PatientResponseDto(
         LocalDate dob,
         String phoneNumber,
         String email,
-        Address address,
-        List<Appointment> appointmentList
+        AddressResponseDto addressResponseDto,
+        List<AppointmentResponseDto> appointmentResponseDtoList
 ) {
 }

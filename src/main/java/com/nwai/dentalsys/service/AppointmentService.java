@@ -1,23 +1,19 @@
 package com.nwai.dentalsys.service;
 
-import com.nwai.dentalsys.dto.request.*;
-import com.nwai.dentalsys.dto.response.*;
-import java.util.Optional;
+import com.nwai.dentalsys.dto.request.AppointmentRequestDto;
+import com.nwai.dentalsys.dto.response.AppointmentResponseDto;
+
 import java.util.List;
+import java.util.Optional;
 
 public interface AppointmentService {
-    //Create
-    Optional<AppointmentResponseDto> createBook(AppointmentRequestDto appointmentRequestDto);
+    AppointmentResponseDto createAppointment(AppointmentRequestDto dto);
 
-    //Update
-    Optional<AppointmentResponseDto> updateBook(String isbn, AppointmentRequestDto appointmentRequestDto);
+    AppointmentResponseDto updateAppointment(int id, AppointmentRequestDto dto);
 
-    //Find by isbn
-    Optional<AppointmentResponseDto> findBookByIsbn(String isbn);
+    void deleteAppointment(int id);
 
-    //Delete by isbn
-    void deleteBookByIsbn(String isbn);
+    Optional<AppointmentResponseDto> getAppointmentById(int id);
 
-    //Find all
-    List<AppointmentResponseDto> findAllBooks();
+    List<AppointmentResponseDto> getAllAppointments();
 }

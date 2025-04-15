@@ -6,6 +6,7 @@ import org.mapstruct.*;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface AddressMapper {
+
     Address addressRequestDtoToAddress(AddressRequestDto addressRequestDto);
 
     //map from Address to response

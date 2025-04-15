@@ -29,16 +29,16 @@ public class Appointment {
     @JoinColumn(name = "dentist_id")
     private Dentist dentist;
     @ManyToOne
-    @JoinColumn(name = "sugery_id")
-    private Sugery sugery;
+    @JoinColumn(name = "surgery_id")
+    private Surgery surgery;
 
-    public Appointment(LocalDate appointmentDate, LocalTime appointmentTime, String status, String confirmStatus, Patient patient, Dentist dentist, Sugery sugery) {
+    public Appointment(LocalDate appointmentDate, LocalTime appointmentTime, String status, String confirmStatus, Patient patient, Dentist dentist, Surgery surgery) {
         this.appointmentDate = appointmentDate;
         this.appointmentTime = appointmentTime;
         this.status = status;
         this.confirmStatus = confirmStatus;
         this.patient = patient;
         this.dentist = dentist;
-        this.sugery = sugery;
+        this.surgery = surgery;
     }
 }

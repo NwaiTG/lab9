@@ -24,14 +24,14 @@ public class Patient {
     @Column(nullable = false)
     private String phoneNumber;
     @Column(nullable = false)
-    private Integer email;
+    private String email;
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "address_id")
     private Address address;
     @OneToMany(mappedBy = "patient")
     private List<Appointment> appointmentList;
 
-    public Patient(String patNo, String firstName, String lastName, java.time.LocalDate dob, String phoneNumber, Integer email) {
+    public Patient(String patNo, String firstName, String lastName, java.time.LocalDate dob, String phoneNumber, String email) {
         this.patNo = patNo;
         this.firstName = firstName;
         this.lastName = lastName;

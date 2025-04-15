@@ -5,27 +5,27 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Table(name = "sugery")
+@Table(name = "surgery")
 @NoArgsConstructor
 @Data
-public class Sugery {
+public class Surgery {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "sugery_id")
+    @Column(name = "surgery_id")
     private int id;
     @Column(nullable = false)
-    private String sugeryNo;
+    private String surgeryNo;
     @Column(nullable = false)
-    private String sugeryName;
+    private String surgeryName;
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "address_id")
     private Address address;
-    @OneToMany(mappedBy = "sugery")
+    @OneToMany(mappedBy = "surgery")
     private List<Appointment> appointmentList;
 
-    public Sugery(String sugeryNo, String sugeryName){
-        this.sugeryNo = sugeryNo;
-        this.sugeryName = sugeryName;
+    public Surgery(String surgeryNo, String surgeryName){
+        this.surgeryNo = surgeryNo;
+        this.surgeryName = surgeryName;
     }
 
 }

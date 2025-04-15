@@ -9,7 +9,7 @@ public record DentistRequestDto(
         String phoneNumber,
         String email,
         String specialization,
-        List<Appointment> appointmentList
+        List<AppointmentRequestDto> appointmentRequestDtoList
 ) {
 }
 

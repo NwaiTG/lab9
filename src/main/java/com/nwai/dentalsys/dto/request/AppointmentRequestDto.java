@@ -7,6 +7,9 @@ public record AppointmentRequestDto(
    LocalDate appointmentDate,
    LocalTime appointmentTime,
    String status,
-   String confirmStatus
+   String confirmStatus,
+   int patientId,
+   int dentistId,
+   int surgeryId
 ) {
 }

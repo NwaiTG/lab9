@@ -1,13 +1,12 @@
 package com.nwai.dentalsys.mapper;
 
-import org.mapstruct.*;
+import com.nwai.dentalsys.dto.request.AppointmentRequestDto;
+import com.nwai.dentalsys.dto.response.AppointmentResponseDto;
 import com.nwai.dentalsys.model.Appointment;
-import com.nwai.dentalsys.dto.request.AddressRequestDto;
+import org.mapstruct.*;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface AppointmentMapper {
-    Appointment appointmentRequestDtoToAppointment(AddressRequestDto addressRequestDto);
-
-
-
+    Appointment appointmentRequestDtoToAppointment(AppointmentRequestDto appointmentRequestDto);
+    AppointmentResponseDto appointmentToAppointmentResponseDto(Appointment appointment);
 }
