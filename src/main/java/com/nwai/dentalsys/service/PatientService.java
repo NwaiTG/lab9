@@ -1,23 +1,22 @@
 package com.nwai.dentalsys.service;
 
-import com.nwai.dentalsys.dto.request.*;
-import com.nwai.dentalsys.dto.response.*;
-import java.util.Optional;
+import com.nwai.dentalsys.dto.request.PatientRequestDto;
+import com.nwai.dentalsys.dto.response.PatientResponseDto;
+
 import java.util.List;
+import java.util.Optional;
 
 public interface PatientService {
-    //Create
-    Optional<PatientResponseDto> createBook(PatientRequestDto patientRequestDto);
 
-    //Update
-    Optional<PatientResponseDto> updateBook(String isbn, PatientRequestDto patientRequestDto);
+    List<PatientResponseDto> getAllPatientsSortedByLastName();
 
-    //Find by isbn
-    Optional<PatientResponseDto> findBookByIsbn(String isbn);
+    Optional<PatientResponseDto> getPatientById(int id);
 
-    //Delete by isbn
-    void deleteBookByIsbn(String isbn);
+    PatientResponseDto createPatient(PatientRequestDto dto);
 
-    //Find all
-    List<PatientResponseDto> findAllBooks();
+    Optional<PatientResponseDto> updatePatient(int id, PatientRequestDto dto);
+
+    boolean deletePatientById(int id);
+
+    List<PatientResponseDto> searchPatients(String searchString);
 }

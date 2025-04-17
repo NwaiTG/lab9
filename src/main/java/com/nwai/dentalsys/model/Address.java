@@ -16,7 +16,7 @@ public class Address {
     private String unitNo;
     @Column(nullable = false)
     private String street;
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String city;
     @Column(nullable = false)
     private String state;

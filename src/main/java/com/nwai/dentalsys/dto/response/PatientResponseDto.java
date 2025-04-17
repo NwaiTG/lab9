@@ -5,6 +5,7 @@ import java.util.List;
 import com.nwai.dentalsys.model.*;
 
 public record PatientResponseDto(
+        int id,
         String patNo,
         String firstName,
         String lastName,

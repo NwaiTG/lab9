@@ -19,30 +19,4 @@ public class DentalsysApplication {
         SpringApplication.run(DentalsysApplication.class, args);
     }
 
-    @Bean
-    public CommandLineRunner run(AppointmentService appointmentService) {
-        return args -> {
-            AppointmentRequestDto dto = new AppointmentRequestDto(
-                    LocalDate.now(),
-                    LocalTime.of(9, 0),
-                    "Scheduled",
-                    "Pending",
-                    1, // patientId
-                    1, // dentistId
-                    1  // surgeryId
-            );
-
-            try {
-                var response = appointmentService.createAppointment(dto);
-                System.out.println("Appointment saved: " + response);
-            } catch (Exception e) {
-                System.out.println("Failed to save appointment: " + e.getMessage());
-            }
-
-            // 2. Retrieve and print all appointments
-            List<AppointmentResponseDto> appointments = appointmentService.getAllAppointments();
-            System.out.println("All Appointments:");
-            appointments.forEach(System.out::println);
-        };
-    }
 }
