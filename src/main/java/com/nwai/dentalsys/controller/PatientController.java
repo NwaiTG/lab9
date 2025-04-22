@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/adsweb/api/v1")
+@RequestMapping("/adsweb/api/v1/patients")
 public class PatientController {
 
     private final PatientService patientService;
@@ -19,13 +19,13 @@ public class PatientController {
     }
 
     // 1. GET all patients sorted by last name
-    @GetMapping("/patients")
+    @GetMapping
     public ResponseEntity<List<PatientResponseDto>> getAllPatients() {
         return ResponseEntity.ok(patientService.getAllPatientsSortedByLastName());
     }
 
     // 2. GET a patient by ID
-    @GetMapping("/patients/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<PatientResponseDto> getPatientById(@PathVariable int id) {
         return patientService.getPatientById(id)
                 .map(ResponseEntity::ok)
@@ -33,13 +33,13 @@ public class PatientController {
     }
 
     // 3. POST new patient
-    @PostMapping("/patients")
+    @PostMapping
     public ResponseEntity<PatientResponseDto> createPatient(@RequestBody PatientRequestDto requestDto) {
         return ResponseEntity.ok(patientService.createPatient(requestDto));
     }
 
     // 4. PUT update patient
-    @PutMapping("/patients/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<PatientResponseDto> updatePatient(@PathVariable int id, @RequestBody PatientRequestDto requestDto) {
         return patientService.updatePatient(id, requestDto)
                 .map(ResponseEntity::ok)
@@ -47,14 +47,14 @@ public class PatientController {
     }
 
     // 5. DELETE patient
-    @DeleteMapping("/patients/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePatient(@PathVariable int id) {
         boolean deleted = patientService.deletePatientById(id);
         return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
 
     // 6. SEARCH patients
-    @GetMapping("/patient/search/{searchString}")
+    @GetMapping("/search/{searchString}")
     public ResponseEntity<List<PatientResponseDto>> searchPatients(@PathVariable String searchString) {
         return ResponseEntity.ok(patientService.searchPatients(searchString));
     }
